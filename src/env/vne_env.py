@@ -30,12 +30,19 @@ class VNEEnv(gym.Env):
         return observation, info
 
     def step(self, action):
-        # まだダミー（ロジックは次のステップで実装）
         reward = 0.0
-        done = False
-        info = {}
+        done = True  # 仮想ノード1個だけを埋め込む仮定
+
+        if self.node_usage[action] == 0.0:
+            # 未使用 → 割り当て成功
+            self.node_usage[action] = 1.0
+            reward = 1.0
+        else:
+            # 使用済 → 割り当て失敗（何もしない）
+            reward = 0.0
 
         observation = self.node_usage.copy()
+        info = {"assigned": bool(reward == 1.0)}
         return observation, reward, done, False, info
 
     def render(self):
