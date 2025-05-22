@@ -1,0 +1,22 @@
+# Pythonバイトコードなど
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 仮想環境（パスに応じて修正）
+vne-env/
+
+# VS Code設定ファイル（任意）
+.vscode/
+
+# Jupyter Notebook出力
+.ipynb_checkpoints/
+
+# テスト結果・ログ・キャッシュ
+*.log
+*.out
+*.tmp
+
+# 結果ファイルや一時出力（任意で除外）
+results/
